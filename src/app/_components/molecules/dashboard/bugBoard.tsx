@@ -1,13 +1,25 @@
 import { Box, Text, Badge, Flex } from '@chakra-ui/react';
-import React from 'react';
+import React, { FC } from 'react';
 import PrimaryButton from '../../atom/button/default';
+import Link from 'next/link';
 
-const BugBoard = () => {
+interface IBugBoard {
+  title: string;
+  date: string;
+  price: string;
+}
+
+const BugBoard: FC<IBugBoard> = ({ title, price, date }) => {
   return (
-    <Box bg={'#fff'} w={['500px']} padding={'15px 20px'} borderRadius={'8px'}>
+    <Box
+      bg={'#fff'}
+      w={['100%', '100%', '500px']}
+      padding={'15px 20px'}
+      borderRadius={'8px'}
+    >
       <Flex alignItems={'center'} justifyContent={'space-between'}>
         <Text fontSize={['13px', '16px']} py={'1em'} fontWeight={'500'}>
-          Sample bug fix for products listing Api
+          {title}
         </Text>
 
         <Badge
@@ -19,14 +31,18 @@ const BugBoard = () => {
           bg={'rgba(6, 153, 85, 0.12)'}
           color={'#069955'}
         >
-          $120
+          {price}
         </Badge>
       </Flex>
 
-      <Flex justifyContent={'space-between'} my={'1em'}>
+      <Flex
+        justifyContent={'space-between'}
+        my={'1em'}
+        flexDir={['column', 'row', 'row']}
+      >
         <Text color={'#818181'}>Payment Verified</Text>
         <Text color={'#F50449'} fontWeight={700}>
-          Due by: 7 Oct, 2023
+          Due by: {date}
         </Text>
       </Flex>
 
@@ -43,9 +59,15 @@ const BugBoard = () => {
         </Badge>
       </Box>
 
-      <PrimaryButton color={'#f50449'} border={'1px solid #E71D36'} bg={'none'}>
-        See Details
-      </PrimaryButton>
+      <Link href={'/09128###'}>
+        <PrimaryButton
+          color={'#f50449'}
+          border={'1px solid #E71D36'}
+          bg={'none'}
+        >
+          See Details
+        </PrimaryButton>
+      </Link>
     </Box>
   );
 };

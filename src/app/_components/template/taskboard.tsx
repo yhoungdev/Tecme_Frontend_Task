@@ -4,6 +4,24 @@ import ContentBox from '../molecules/dashboard/contentBox';
 import BugBoard from '../molecules/dashboard/bugBoard';
 import SearchField from '../atom/input/searchField';
 import { industries } from '@/app/_utils/data/industries';
+import Link from 'next/link';
+import { bugs } from '@/app/_utils/data/bugs';
+import { formatNumber } from '@/app/helper/formatNumber';
+
+const data = [
+  {
+    title: 3400,
+    content: 'Total Earnings',
+  },
+  {
+    title: 3,
+    content: 'Bounty Accepted',
+  },
+  {
+    title: 1,
+    content: 'Bounty Completed',
+  },
+];
 
 const TaskBoard = () => {
   return (
@@ -12,24 +30,28 @@ const TaskBoard = () => {
         Product Bounty
       </Text>
       <Text>Get paid when you complete a bounty for any project</Text>
-      <Flex gap={'1em'} flexWrap={'wrap'}>
-        {[1, 2, 2].map((items, index) => (
+      <Flex gap={'1em'} flexWrap={'wrap'} my={'2em'}>
+        {data.map((items, index) => (
           <Fragment key={index}>
-            <ContentBox />
+            <ContentBox title={Number(items.title)} content={items.content} />
           </Fragment>
         ))}
       </Flex>
 
       <Flex gap={'1em'}>
         <Flex gap={'1em'} my={'1.4em'} flexWrap={'wrap'}>
-          {[1, 2, 2].map((items, index) => (
+          {bugs.map((items, index) => (
             <Fragment key={index}>
-              <BugBoard />
+              <BugBoard
+                title={items?.title}
+                date={items?.date}
+                price={formatNumber(items?.amount)}
+              />
             </Fragment>
           ))}
         </Flex>
 
-        <Box>
+        <Box display={['none', 'none', 'block']}>
           <SearchField />
 
           <Text fontWeight={600} my={'1.5em'}>

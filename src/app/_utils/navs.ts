@@ -1,17 +1,20 @@
 export const header_nav = [
     {
         title: 'Home',
-        icon: '',
-        active_icon: ''
+        icon: '/assets/icons/home.svg',
+        active_icon: '',
+        path: '/'
     },
     {
-        title: 'Home',
-        icon: '',
-        active_icon: ''
+        title: 'Channel',
+        icon: '/assets/icons/channel.svg',
+        active_icon: '/assets/icons/channgel.svg',
+        path: '/channels'
     },
     {
-        title: 'Home',
-        icon: '',
-        active_icon: ''
+        title: 'Payment',
+        icon: '/assets/icons/payment.svg',
+        active_icon: '',
+        path: '/payment'
     }
 ]
