@@ -7,9 +7,10 @@ interface IBugBoard {
   title: string;
   date: string;
   price: string;
+  id: string;
 }
 
-const BugBoard: FC<IBugBoard> = ({ title, price, date }) => {
+const BugBoard: FC<IBugBoard> = ({ title, price, date, id }) => {
   return (
     <Box
       bg={'#fff'}
@@ -59,7 +60,7 @@ const BugBoard: FC<IBugBoard> = ({ title, price, date }) => {
         </Badge>
       </Box>
 
-      <Link href={'/09128###'}>
+      <Link href={id}>
         <PrimaryButton
           color={'#f50449'}
           border={'1px solid #E71D36'}

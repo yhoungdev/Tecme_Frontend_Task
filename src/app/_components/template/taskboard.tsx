@@ -46,6 +46,7 @@ const TaskBoard = () => {
                 title={items?.title}
                 date={items?.date}
                 price={formatNumber(items?.amount)}
+                id={items.id}
               />
             </Fragment>
           ))}

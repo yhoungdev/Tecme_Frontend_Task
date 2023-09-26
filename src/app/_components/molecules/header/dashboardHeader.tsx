@@ -37,7 +37,7 @@ const DashboardHeader = () => {
         <Box mx={'auto'} display={['none', 'none', 'block']}>
           <UnorderedList display={'flex'} listStyleType={'none'} gap={'3em'}>
             {header_nav.map((_, index) => (
-              <Link href={''} key={index}>
+              <Link href={_.path} key={index}>
                 <ListItem
                   display={'inline-flex'}
                   color={path === _.path ? '#E71D36' : ''}
